@@ -2,7 +2,6 @@ import React from 'react';
 
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
-import PhotoList from './components/PhotoList';
 
 const sampleDataForPhotoListItem = {
   id: "1",
