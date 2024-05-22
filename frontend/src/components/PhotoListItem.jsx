@@ -4,12 +4,18 @@ import "../styles/PhotoListItem.scss";
 const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   return (
     <>
-    <img src={sampleDataForPhotoListItem.imageSource} alt='Photo'/>
-    
-      <div>
-        <img src={sampleDataForPhotoListItem.profile} alt='Photo'/>
+    <div className="photo-list__item">
+    <img src={sampleDataForPhotoListItem.imageSource} alt='Photo' className="photo-list__image"/>
+
+      <div className="photo-list__user-details">
+        <img src={sampleDataForPhotoListItem.profile} alt='Photo' className="photo-list__user-profile"/>
+
+        <div className="photo-list__user-info">
         <div>{sampleDataForPhotoListItem.username}</div>
-        <div>{sampleDataForPhotoListItem.location["city"]} {sampleDataForPhotoListItem.location["country"]}</div>
+        <div className="photo-list__user-location">{sampleDataForPhotoListItem.location["city"]}, {sampleDataForPhotoListItem.location["country"]}</div>
+        </div>
+
+    </div>
     </div>
   </>
   )
