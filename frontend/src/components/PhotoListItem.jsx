@@ -5,10 +5,10 @@ const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   return (
     <>
     <div className="photo-list__item">
-    <img src={sampleDataForPhotoListItem.imageSource} alt='Photo' className="photo-list__image"/>
+    <img src={sampleDataForPhotoListItem.imageSource} alt='Photo item' className="photo-list__image"/>
 
       <div className="photo-list__user-details">
-        <img src={sampleDataForPhotoListItem.profile} alt='Photo' className="photo-list__user-profile"/>
+        <img src={sampleDataForPhotoListItem.profile} alt='User image' className="photo-list__user-profile"/>
 
         <div className="photo-list__user-info">
         <div>{sampleDataForPhotoListItem.username}</div>
