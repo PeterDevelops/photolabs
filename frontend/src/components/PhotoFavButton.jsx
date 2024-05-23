@@ -7,7 +7,7 @@ function PhotoFavButton() {
   const [heart, setHeart] = useState('inactive');
 
   const likedHeart = () => {
-    setHeart(heart === 'inactive' ? 'active' : 'inactive');
+    setHeart(prevHeart => prevHeart === 'inactive' ? 'active' : 'inactive');
     console.log('Heart liked');
   };
 
