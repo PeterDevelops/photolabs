@@ -2,20 +2,23 @@ import React, { Fragment } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({sampleDataForPhotoListItem}) => {
+const PhotoListItem = (props) => {
+
+  const { sampleDataForPhotoList } = props;
+
   return (
     <>
     <div className="photo-list__item">
       <div>
     <PhotoFavButton />
-    <img src={sampleDataForPhotoListItem.imageSource} alt='Photo item' className="photo-list__image"/>
+    <img src={sampleDataForPhotoList.urls.regular} alt='Photo item' className="photo-list__image"/>
     </div>
       <div className="photo-list__user-details">
-        <img src={sampleDataForPhotoListItem.profile} alt='User image' className="photo-list__user-profile"/>
+        <img src={sampleDataForPhotoList.user.profile} alt='User image' className="photo-list__user-profile"/>
 
         <div className="photo-list__user-info">
-        <div>{sampleDataForPhotoListItem.username}</div>
-        <div className="photo-list__user-location">{sampleDataForPhotoListItem.location["city"]}, {sampleDataForPhotoListItem.location["country"]}</div>
+        <div>{sampleDataForPhotoList.user.username}</div>
+        <div className="photo-list__user-location">{sampleDataForPhotoList.location.city}, {sampleDataForPhotoList.location.country}</div>
         </div>
 
     </div>
@@ -23,5 +26,5 @@ const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   </>
   )
 };
-
+ 
 export default PhotoListItem;
