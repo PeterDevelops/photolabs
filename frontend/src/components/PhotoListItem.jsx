@@ -1,12 +1,15 @@
 import React, { Fragment } from "react";
 import "../styles/PhotoListItem.scss";
+import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({sampleDataForPhotoListItem}) => {
   return (
     <>
     <div className="photo-list__item">
+      <div>
+    <PhotoFavButton />
     <img src={sampleDataForPhotoListItem.imageSource} alt='Photo item' className="photo-list__image"/>
-
+    </div>
       <div className="photo-list__user-details">
         <img src={sampleDataForPhotoListItem.profile} alt='User image' className="photo-list__user-profile"/>
 

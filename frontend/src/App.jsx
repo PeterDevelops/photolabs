@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PhotoFavButton from './components/PhotoFavButton';
 import PhotoListItem from './components/PhotoListItem';
 import './App.scss';
 
@@ -13,6 +13,7 @@ const sampleDataForPhotoListItem = {
   username: "Joe Example",
   profile: `${process.env.PUBLIC_URL}/profile-1.jpg`,
 };
+
 // creates new array with 3 length worth of content, fill() 3 content with null, map content with photoListItem
 const photos = new Array(3).fill(null).map((element, index) => <PhotoListItem key={index} sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>);
 
