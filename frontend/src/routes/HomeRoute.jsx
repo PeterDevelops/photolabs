@@ -16,8 +16,8 @@ const HomeRoute = () => {
 
       // if updatedPrev.includes(photoID)
       if (updatedPrev.includes(photoID)) {
-        // if true: filter photoID
-        setFavourite(updatedPrev.filter(id => id !== photoID ));
+        // if true: filter photoID and return the updatedPrev
+        return updatedPrev.filter(id => id !== photoID );
       }
       
       // otherwise push photoID
@@ -27,6 +27,7 @@ const HomeRoute = () => {
       return updatedPrev;
     });
   };
+  
   // create onClick handler, with hard coded 
   console.log('This is favourite: ', favourite);
   return (
