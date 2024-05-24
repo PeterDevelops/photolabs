@@ -4,21 +4,21 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { sampleDataForPhotoList } = props;
+  const { photos } = props;
 
   return (
     <>
     <div className="photo-list__item">
       <div>
     <PhotoFavButton />
-    <img src={sampleDataForPhotoList.urls.regular} alt='Photo item' className="photo-list__image"/>
+    <img src={photos.urls.regular} alt='Photo item' className="photo-list__image"/>
     </div>
       <div className="photo-list__user-details">
-        <img src={sampleDataForPhotoList.user.profile} alt='User image' className="photo-list__user-profile"/>
+        <img src={photos.user.profile} alt='User image' className="photo-list__user-profile"/>
 
         <div className="photo-list__user-info">
-        <div>{sampleDataForPhotoList.user.username}</div>
-        <div className="photo-list__user-location">{sampleDataForPhotoList.location.city}, {sampleDataForPhotoList.location.country}</div>
+        <div>{photos.user.username}</div>
+        <div className="photo-list__user-location">{photos.location.city}, {photos.location.country}</div>
         </div>
 
     </div>
