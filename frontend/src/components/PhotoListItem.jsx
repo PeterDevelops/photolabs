@@ -2,9 +2,7 @@ import React, { Fragment } from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = (props) => {
-
-  const { photos, addAndDeleteFavourite, Modal, openModal} = props;
+const PhotoListItem = ({ photos, addAndDeleteFavourite, openModal}) => {
 
   return (
     <>

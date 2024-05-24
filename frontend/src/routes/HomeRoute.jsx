@@ -4,7 +4,7 @@ import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({Modal, openModal}) => {
+const HomeRoute = ({openModal}) => {
 
   const [favourite, setFavourite] = useState([]);
 
@@ -37,7 +37,7 @@ const HomeRoute = ({Modal, openModal}) => {
   return (
     <div className="home-route">
       <TopNavigation checkFavourite={checkFavourite} favourite={favourite}/>
-      <PhotoList addAndDeleteFavourite={addAndDeleteFavourite} Modal={Modal} openModal={openModal}/>
+      <PhotoList addAndDeleteFavourite={addAndDeleteFavourite} openModal={openModal}/>
     </div>
   );
 };
