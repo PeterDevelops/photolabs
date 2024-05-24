@@ -3,9 +3,11 @@ import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 import photos from "../mocks/photos";
 
-const PhotoList = () => {
-
-  const photosMap = photos.map((data) => <PhotoListItem key={data.id} photos={data}/>);
+const PhotoList = ({addAndDeleteFavourite}) => {
+  
+  const photosMap = photos.map((data) => {
+    return <PhotoListItem key={data.id} photos={data} addAndDeleteFavourite={addAndDeleteFavourite}/>;
+  });
   
   return (
 

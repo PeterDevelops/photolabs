@@ -4,13 +4,13 @@ import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = (props) => {
 
-  const { photos } = props;
+  const { photos, addAndDeleteFavourite} = props;
 
   return (
     <>
     <div className="photo-list__item">
       <div>
-    <PhotoFavButton />
+    <PhotoFavButton addAndDeleteFavourite={addAndDeleteFavourite} photoID={photos.id} />
     <img src={photos.urls.regular} alt='Photo item' className="photo-list__image"/>
     </div>
       <div className="photo-list__user-details">
