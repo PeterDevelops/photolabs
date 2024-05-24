@@ -4,7 +4,8 @@ import React, {useState} from 'react';
 // import TopicListItem from './components/TopicListItem';
 // import TopNavigation from './components/TopNavigationBar';
 import HomeRoute from './routes/HomeRoute';
-import Modal from './components/Modal';
+// import Modal from './components/Modal';
+import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
 
 
@@ -19,7 +20,8 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute openModal={openModal}/>
-      <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
+      {/* <Modal isModalOpen={isModalOpen} closeModal={closeModal} /> */}
+      <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal}/>
     </div>
   );
 };
