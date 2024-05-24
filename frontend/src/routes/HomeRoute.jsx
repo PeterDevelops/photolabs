@@ -29,10 +29,7 @@ const HomeRoute = () => {
   };
 
   const checkFavourite = (favourite) => {
-    if (favourite.length >= 1) {
-      return true;
-    }
-    return false;
+    return favourite.length >= 1;
   }
 
   // create onClick handler, with hard coded 
