@@ -27,12 +27,19 @@ const HomeRoute = () => {
       return updatedPrev;
     });
   };
-  
+
+  const checkFavourite = (favourite) => {
+    if (favourite.length >= 1) {
+      return true;
+    }
+    return false;
+  }
+
   // create onClick handler, with hard coded 
   console.log('This is favourite: ', favourite);
   return (
     <div className="home-route">
-      <TopNavigation />
+      <TopNavigation checkFavourite={checkFavourite} favourite={favourite}/>
       <PhotoList addAndDeleteFavourite={addAndDeleteFavourite} />
     </div>
   );
