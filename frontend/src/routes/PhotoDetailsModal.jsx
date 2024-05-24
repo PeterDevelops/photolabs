@@ -8,19 +8,11 @@ const PhotoDetailsModal = ({isModalOpen, closeModal}) => {
     return null;
   }
 
-  const modalMap = photos.map(data => {
-    return data;
-  })
-
   return (
     <div className="photo-details-modal">
       <button className="photo-details-modal__close-button" onClick={closeModal}>
         <img src={closeSymbol} alt="close symbol" />
       </button>
-      
-      <div>
-      {console.log(modalMap)}
-      </div>
     </div>
   )
 };

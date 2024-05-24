@@ -13,14 +13,25 @@ import './App.scss';
 // const photos = new Array(3).fill(null).map((element, index) => <PhotoListItem key={index} sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>);
 
 const App = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
   const [isModalOpen, setModal] = useState(false);
-  const openModal = () => setModal(true);
-  const closeModal = () => setModal(false);
+
+  const openModal = (photo) => {
+    setModal(true);
+    setSelectedPhoto(photo);
+    console.log(photo);
+  };
+
+  const closeModal = () => {
+    setModal(false);
+    setSelectedPhoto(null);
+  };
+
+
 
   return (
     <div className="App">
       <HomeRoute openModal={openModal}/>
-      {/* <Modal isModalOpen={isModalOpen} closeModal={closeModal} /> */}
       <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal}/>
     </div>
   );
