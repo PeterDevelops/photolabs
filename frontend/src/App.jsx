@@ -18,7 +18,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute Modal={Modal} openModal={openModal}/>
+      <HomeRoute openModal={openModal}/>
       <Modal isModalOpen={isModalOpen} closeModal={closeModal} />
     </div>
   );
