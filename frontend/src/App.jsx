@@ -14,10 +14,13 @@ import './App.scss';
 
 const App = () => {
   const [selectedPhoto, setSelectedPhoto] = useState(null);
+  
   const [isModalOpen, setModal] = useState(false);
 
+  // openModal is triggered through onClick event in PhotoListItem 
   const openModal = (photo) => {
     setModal(true);
+    // evertime openModal is triggered we grab the information of photo mock data
     setSelectedPhoto(photo);
   };
 
@@ -27,10 +30,9 @@ const App = () => {
   };
 
 
-
   return (
     <div className="App">
-      <HomeRoute openModal={openModal}/>
+      <HomeRoute openModal={openModal} isModalOpen={isModalOpen} selectedPhoto={selectedPhoto}/>
       <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto}/>
     </div>
   );

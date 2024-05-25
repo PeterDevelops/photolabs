@@ -6,12 +6,15 @@ const PhotoListItem = ({ photos, addAndDeleteFavourite, openModal }) => {
   if (!photos && !photos.urls && !photos.user) {
     return null;
   }
+  
   return (
     <>
     <div className="photo-list__item">
+      
       <div>
     <PhotoFavButton addAndDeleteFavourite={addAndDeleteFavourite} photoID={photos.id} />
     <img src={photos.urls.regular} alt='Photo item' className="photo-list__image" onClick={() => openModal(photos)} />
+
     </div>
       <div className="photo-list__user-details">
         <img src={photos.user.profile} alt='User image' className="photo-list__user-profile"/>

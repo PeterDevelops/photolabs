@@ -11,6 +11,10 @@
   border-radius: 12px;
 }
 
+.photo-details-container {
+  padding-left: 35px;
+}
+
 .photo-details-modal__close-button {
   background-color: white;
   border: none;
@@ -27,6 +31,7 @@
 .photo-details-modal__images {
   margin-left: 36px;
   margin-top: 8px;
+  
 }
 
 .photo-details-modal__image {
