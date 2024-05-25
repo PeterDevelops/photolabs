@@ -7,7 +7,7 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import PhotoListItem from '../components/PhotoListItem';
 import "../styles/PhotoListItem.scss";
 
-const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto }) => {
+const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto, addAndDeleteFavourite}) => {
   if (!isModalOpen) {
     return null;
   }
@@ -15,8 +15,7 @@ const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto }) => {
   console.log('selectedPhoto:', selectedPhoto);
 
   const similarPhotosValue = Object.values(selectedPhoto.similar_photos);
-  const similarPhotos = similarPhotosValue.filter(photo => photo.id !== selectedPhoto.id);
-  console.log('similarPhotos:', similarPhotos);
+  // const similarPhotos = similarPhotosValue.filter(photo => photo.id !== selectedPhoto.id);
 
   return (
     <>
@@ -28,6 +27,7 @@ const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto }) => {
 
       {/** Large Image */}
       <div>
+      <PhotoFavButton addAndDeleteFavourite={addAndDeleteFavourite} photoID={selectedPhoto.id} />
         <img className='photo-details-modal__image' src={selectedPhoto.urls.full} alt='selected photo' />
       </div>
       
@@ -49,15 +49,11 @@ const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto }) => {
 
       <div className='photo-details-modal__header'>Similiar Photos</div>
       </div>
-      {/* </div> */}
-
-
-
 
       {/** Map similar photos, use PhotoListItem? */}
       <div className='photo-details-modal__images'>
         
-          <PhotoList photos={similarPhotos} />
+          <PhotoList photos={similarPhotosValue} addAndDeleteFavourite={addAndDeleteFavourite}/>
         
       </div>
      </div>
