@@ -3,7 +3,9 @@ import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
 const PhotoListItem = ({ photos, addAndDeleteFavourite, openModal }) => {
-
+  if (!photos && !photos.urls && !photos.user) {
+    return null;
+  }
   return (
     <>
     <div className="photo-list__item">
