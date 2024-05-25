@@ -19,7 +19,6 @@ const App = () => {
   const openModal = (photo) => {
     setModal(true);
     setSelectedPhoto(photo);
-    console.log(photo);
   };
 
   const closeModal = () => {
@@ -32,7 +31,7 @@ const App = () => {
   return (
     <div className="App">
       <HomeRoute openModal={openModal}/>
-      <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal}/>
+      <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto}/>
     </div>
   );
 };

@@ -3,10 +3,11 @@ import photos from '../mocks/photos';
 import '../styles/PhotoDetailsModal.scss'
 import closeSymbol from '../assets/closeSymbol.svg';
 
-const PhotoDetailsModal = ({isModalOpen, closeModal}) => {
+const PhotoDetailsModal = ({isModalOpen, closeModal, selectedPhoto}) => {
   if (!isModalOpen) {
     return null;
   }
+  console.log(selectedPhoto);
 
   return (
     <div className="photo-details-modal">
