@@ -7,61 +7,74 @@ import HomeRoute from './routes/HomeRoute';
 // import Modal from './components/Modal';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
-
+import useApplicationData from './hooks/useApplication';
 
 // creates new array with 3 length worth of content, fill() 3 content with null, map content with photoListItem
 // const photos = new Array(3).fill(null).map((element, index) => <PhotoListItem key={index} sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>);
 
 const App = () => {
-  const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-  const [isModalOpen, setModal] = useState(false);
+  const {
+    state,
+    onPhotoSelect,
+    updateToFavPhotoIds,
+    // onLoadTopic,
+    onClosePhotoDetailsModal,
+    checkFavourite,
+  } = useApplicationData();
 
-  const [favourite, setFavourite] = useState([]);
 
-  // logic for adding favourite
-  const addAndDeleteFavourite = (photoID) => {
-    setFavourite((prev) => {
-      // creates a copy of the previous array
-      const updatedPrev = [...prev];
+  // // setPhotoSelected
+  // const [selectedPhoto, setSelectedPhoto] = useState(null);
 
-      // if updatedPrev.includes(photoID)
-      if (updatedPrev.includes(photoID)) {
-        // if true: filter photoID and return the updatedPrev
-        return updatedPrev.filter(id => id !== photoID);
-      }
+  // // 
+  // const [isModalOpen, setModal] = useState(false);
 
-      // otherwise push photoID
-      updatedPrev.push(photoID);
-      //return prev array
-      return updatedPrev;
-    });
-  };
+  // const [favourite, setFavourite] = useState([]);
 
-  const checkFavourite = (favourite) => {
-    return favourite.length >= 1;
-  };
+  // // logic for adding favourite
+  // const addAndDeleteFavourite = (photoID) => {
+  //   setFavourite((prev) => {
+  //     // creates a copy of the previous array
+  //     const updatedPrev = [...prev];
 
-  // openModal is triggered through onClick event in PhotoListItem 
-  const openModal = (photo) => {
-    setModal(true);
-    // evertime openModal is triggered we grab the information of photo mock data
-    setSelectedPhoto(photo);
-  };
+  //     // if updatedPrev.includes(photoID)
+  //     if (updatedPrev.includes(photoID)) {
+  //       // if true: filter photoID and return the updatedPrev
+  //       return updatedPrev.filter(id => id !== photoID);
+  //     }
 
-  const closeModal = () => {
-    setModal(false);
-    setSelectedPhoto(null);
-  };
+  //     // otherwise push photoID
+  //     updatedPrev.push(photoID);
+  //     //return prev array
+  //     return updatedPrev;
+  //   });
+  // };
 
-  console.log('favourited photo:', favourite);
+  // const checkFavourite = (state.favourite) => {
+  //   return state.favourite.length >= 1;
+  // };
+
+  // // openModal is triggered through onClick event in PhotoListItem 
+  // const openModal = (photo) => {
+  //   setModal(true);
+  //   // evertime openModal is triggered we grab the information of photo mock data
+  //   setSelectedPhoto(photo);
+  // };
+
+  // const closeModal = () => {
+  //   setModal(false);
+  //   setSelectedPhoto(null);
+  // };
+
+  // console.log('favourited photo:', favourite);
 
   return (
     <div className="App">
-      <HomeRoute openModal={openModal} isModalOpen={isModalOpen} selectedPhoto={selectedPhoto}
-      checkFavourite={checkFavourite} favourite={favourite} addAndDeleteFavourite={addAndDeleteFavourite} />
-      <PhotoDetailsModal isModalOpen={isModalOpen} closeModal={closeModal} selectedPhoto={selectedPhoto}
-      addAndDeleteFavourite={addAndDeleteFavourite} />
+      
+      <HomeRoute onPhotoSelect={onPhotoSelect} checkFavourite={checkFavourite} updateToFavPhotoIds={updateToFavPhotoIds} />
+      <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal}
+      updateToFavPhotoIds={updateToFavPhotoIds} state={state} />
     </div>
   );
 };

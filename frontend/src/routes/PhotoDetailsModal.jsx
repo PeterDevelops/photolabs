@@ -7,56 +7,53 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import PhotoListItem from '../components/PhotoListItem';
 import "../styles/PhotoListItem.scss";
 
-const PhotoDetailsModal = ({ isModalOpen, closeModal, selectedPhoto, addAndDeleteFavourite}) => {
-  if (!isModalOpen) {
+const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFavPhotoIds, state }) => {
+  if (!state.isModalOpen) {
     return null;
   }
-  // selectedPhoto is the photo mock data from PhotoListItem which is triggered through the onClick event
-  console.log('selectedPhoto:', selectedPhoto);
 
-  const similarPhotosValue = Object.values(selectedPhoto.similar_photos);
-  // const similarPhotos = similarPhotosValue.filter(photo => photo.id !== selectedPhoto.id);
+  const similarPhotosValue = Object.values(state.selectedPhoto.similar_photos);
 
   return (
     <>
-    <div className="photo-details-modal">
-      <button className="photo-details-modal__close-button" onClick={closeModal}>
-        <img src={closeSymbol} alt="close symbol" />
-      </button>
-      <div className='photo-details-container'>
+      <div className="photo-details-modal">
+        <button className="photo-details-modal__close-button" onClick={onClosePhotoDetailsModal}>
+          <img src={closeSymbol} alt="close symbol" />
+        </button>
+        <div className='photo-details-container'>
 
-      {/** Large Image */}
-      <div>
-      <PhotoFavButton addAndDeleteFavourite={addAndDeleteFavourite} photoID={selectedPhoto.id} />
-        <img className='photo-details-modal__image' src={selectedPhoto.urls.full} alt='selected photo' />
-      </div>
-      
+          {/** Large Image */}
+          <div>
+            <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={state.selectedPhoto.id} />
+            <img className='photo-details-modal__image' src={state.selectedPhoto.urls.full} alt='selected photo' />
+          </div>
 
-      {/** Profile detail container */}
 
-      <div className='photo-details-modal__photographer-details'>
-        {/** Profile picture */}
-        <img className='photo-details-modal__photographer-profile' src={selectedPhoto.user.profile} />
+          {/** Profile detail container */}
 
-        <div className="photo-list__user-info">
-          {/** Profile name */}
-          <div>{selectedPhoto.user.name}</div>
-          {/** Profile location*/}
-          <div className="photo-list__user-location">{selectedPhoto.location.city}, {selectedPhoto.location.country}</div>
+          <div className='photo-details-modal__photographer-details'>
+            {/** Profile picture */}
+            <img className='photo-details-modal__photographer-profile' src={state.selectedPhoto.user.profile} />
+
+            <div className="photo-list__user-info">
+              {/** Profile name */}
+              <div>{state.selectedPhoto.user.name}</div>
+              {/** Profile location*/}
+              <div className="photo-list__user-location">{state.selectedPhoto.location.city}, {state.selectedPhoto.location.country}</div>
+            </div>
+
+          </div>
+
+          <div className='photo-details-modal__header'>Similiar Photos</div>
         </div>
 
-      </div>
+        {/** Map similar photos, use PhotoListItem? */}
+        <div className='photo-details-modal__images'>
 
-      <div className='photo-details-modal__header'>Similiar Photos</div>
-      </div>
+          <PhotoList photos={similarPhotosValue} updateToFavPhotoIds={updateToFavPhotoIds} />
 
-      {/** Map similar photos, use PhotoListItem? */}
-      <div className='photo-details-modal__images'>
-        
-          <PhotoList photos={similarPhotosValue} addAndDeleteFavourite={addAndDeleteFavourite}/>
-        
+        </div>
       </div>
-     </div>
 
     </>
   );

@@ -3,12 +3,12 @@ import React, { useCallback, useState } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({addAndDeleteFavourite, photoID}) {
+function PhotoFavButton({updateToFavPhotoIds, photoID}) {
   const [heart, setHeart] = useState(false);
 
   const likedHeart = () => {
     setHeart(prevHeart => prevHeart === false ? true : false);
-    addAndDeleteFavourite(photoID);
+    updateToFavPhotoIds(photoID);
   };
 
   return (

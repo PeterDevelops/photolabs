@@ -4,12 +4,12 @@ import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ openModal, isModalOpen, checkFavourite, favourite, addAndDeleteFavourite}) => {
+const HomeRoute = ({ onPhotoSelect, checkFavourite, updateToFavPhotoIds }) => {
 
   return (
     <div className="home-route">
-      <TopNavigation checkFavourite={checkFavourite} favourite={favourite}/>
-      <PhotoList addAndDeleteFavourite={addAndDeleteFavourite} openModal={openModal} isModalOpen={isModalOpen}/>
+      <TopNavigation checkFavourite={checkFavourite} />
+      <PhotoList updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />
     </div>
   );
 };

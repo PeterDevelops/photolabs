@@ -4,11 +4,11 @@ import "../styles/PhotoList.scss";
 import photos from "../mocks/photos";
 import PhotoDetailsModal from "../routes/PhotoDetailsModal";
 
-const PhotoList = ({addAndDeleteFavourite, openModal}) => {
-  
-    const photosMap = photos.map((data) => {
-      return <PhotoListItem key={data.id} photos={data} addAndDeleteFavourite={addAndDeleteFavourite} openModal={openModal}/>;
-});
+const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect }) => {
+
+  const photosMap = photos.map((data) => {
+    return <PhotoListItem key={data.id} photos={data} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />;
+  });
 
   return (
 
@@ -19,5 +19,5 @@ const PhotoList = ({addAndDeleteFavourite, openModal}) => {
 
   );
 };
- 
+
 export default PhotoList;
