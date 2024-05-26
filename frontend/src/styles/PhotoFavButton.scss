@@ -1,21 +1,22 @@
 .photo-list__fav-icon {
   position: relative;
   // t: 8 r: -8
-  top: 12px;
-  right: -10px;
+  top: 13px;
+  right: -9px;
 
   cursor: pointer;
-  margin-bottom: -30px;
+  // mb: -30
+  margin-bottom: -37px;
   border-width: 0.1px;
   background-color: #EEEEEE;
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
   text-align: center;
   border-radius: 100%;
 }
  // heart styling
 .photo-list__fav-icon-svg {
   // p: 7
-  padding: 6px;
+  padding: 7px;
   top: 2px;
 }
