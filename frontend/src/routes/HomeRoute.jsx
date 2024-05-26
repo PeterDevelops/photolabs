@@ -8,7 +8,7 @@ const HomeRoute = ({ onPhotoSelect, checkFavourite, updateToFavPhotoIds }) => {
 
   return (
     <div className="home-route">
-      <TopNavigation checkFavourite={checkFavourite} />
+      <TopNavigation checkFavourite={checkFavourite}  />
       <PhotoList updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />
     </div>
   );

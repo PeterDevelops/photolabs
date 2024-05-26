@@ -23,52 +23,6 @@ const App = () => {
     checkFavourite,
   } = useApplicationData();
 
-
-  // // setPhotoSelected
-  // const [selectedPhoto, setSelectedPhoto] = useState(null);
-
-  // // 
-  // const [isModalOpen, setModal] = useState(false);
-
-  // const [favourite, setFavourite] = useState([]);
-
-  // // logic for adding favourite
-  // const addAndDeleteFavourite = (photoID) => {
-  //   setFavourite((prev) => {
-  //     // creates a copy of the previous array
-  //     const updatedPrev = [...prev];
-
-  //     // if updatedPrev.includes(photoID)
-  //     if (updatedPrev.includes(photoID)) {
-  //       // if true: filter photoID and return the updatedPrev
-  //       return updatedPrev.filter(id => id !== photoID);
-  //     }
-
-  //     // otherwise push photoID
-  //     updatedPrev.push(photoID);
-  //     //return prev array
-  //     return updatedPrev;
-  //   });
-  // };
-
-  // const checkFavourite = (state.favourite) => {
-  //   return state.favourite.length >= 1;
-  // };
-
-  // // openModal is triggered through onClick event in PhotoListItem 
-  // const openModal = (photo) => {
-  //   setModal(true);
-  //   // evertime openModal is triggered we grab the information of photo mock data
-  //   setSelectedPhoto(photo);
-  // };
-
-  // const closeModal = () => {
-  //   setModal(false);
-  //   setSelectedPhoto(null);
-  // };
-
-  // console.log('favourited photo:', favourite);
-
   return (
     <div className="App">
       
