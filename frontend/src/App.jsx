@@ -7,7 +7,7 @@ import HomeRoute from './routes/HomeRoute';
 // import Modal from './components/Modal';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
-import useApplicationData from './hooks/useApplication';
+import useApplicationData from './hooks/useApplicationData';
 
 // creates new array with 3 length worth of content, fill() 3 content with null, map content with photoListItem
 // const photos = new Array(3).fill(null).map((element, index) => <PhotoListItem key={index} sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>);
