@@ -27,8 +27,7 @@ const App = () => {
     <div className="App">
       
       <HomeRoute onPhotoSelect={onPhotoSelect} checkFavourite={checkFavourite} updateToFavPhotoIds={updateToFavPhotoIds} />
-      <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal}
-      updateToFavPhotoIds={updateToFavPhotoIds} state={state} />
+      <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} updateToFavPhotoIds={updateToFavPhotoIds} state={state} />
     </div>
   );
 };
