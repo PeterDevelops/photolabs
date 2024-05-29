@@ -1,13 +1,12 @@
 import React from 'react';
-import photos from '../mocks/photos';
 import '../styles/PhotoDetailsModal.scss';
 import closeSymbol from '../assets/closeSymbol.svg';
 import PhotoList from '../components/PhotoList';
 import PhotoFavButton from '../components/PhotoFavButton';
-import PhotoListItem from '../components/PhotoListItem';
 import "../styles/PhotoListItem.scss";
 
-const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFavPhotoIds, state, photoData }) => {
+
+const PhotoDetailsModal = ({ onClosePhotoDetailsModal, updateToFavPhotoIds, state, photoData }) => {
   if (!state.isModalOpen) {
     return null;
   }
@@ -22,11 +21,10 @@ const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFa
         <div className='photo-details-container'>
 
           {/** Large Image */}
-          <div>
+          <div >
             <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={state.selectedPhoto.id} />
             <img className='photo-details-modal__image' src={state.selectedPhoto.urls.full} alt='selected photo' />
           </div>
-
 
           {/** Profile detail container */}
 

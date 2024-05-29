@@ -9,11 +9,10 @@ export const ACTIONS = {
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
   GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
-  // 'http://localhost:8001/api/topics/photos/:topic_id'
 };
 
 // initial state
-const initialState = {
+const initialValue = {
   favourite: [],
   selectedPhoto: null,
   isModalOpen: false,
@@ -69,25 +68,11 @@ function reducer(state, action) {
 };
 
 const useApplicationData = function() {
-  const [state, dispatch] = useReducer(reducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialValue);
 
   const checkFavourite = () => {
     return state.favourite.length >= 1;
   };
-
-  // console.log('State:', state);
-
-  // useEffect(() => {
-  //   fetch('http://localhost:8001/api/photos')
-  //   .then(res => res.json())
-  //   .then(data => dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: data }));
-  // }, []);
-
-  // useEffect(() => {
-  //   fetch('http://localhost:8001/api/topics')
-  //   .then(res => res.json())
-  //   .then(data => dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: data }));
-  // }, []);
 
   useEffect(() => {
     Promise.all([
@@ -128,8 +113,8 @@ const useApplicationData = function() {
       })
       .catch(error => {
         throw new Error('Could not retrive topic data');
-      })
-  }
+      });
+  };
 
   return {
     state,
@@ -140,8 +125,5 @@ const useApplicationData = function() {
     fetchPhotosByTopicId
   };
 };
-// useReducer function state
-
-
 
 export default useApplicationData;
