@@ -7,13 +7,12 @@ import PhotoFavButton from '../components/PhotoFavButton';
 import PhotoListItem from '../components/PhotoListItem';
 import "../styles/PhotoListItem.scss";
 
-const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFavPhotoIds, state }) => {
+const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFavPhotoIds, state, photoData }) => {
   if (!state.isModalOpen) {
     return null;
   }
 
   const similarPhotosValue = Object.values(state.selectedPhoto.similar_photos);
-
   return (
     <>
       <div className="photo-details-modal">
@@ -50,7 +49,7 @@ const PhotoDetailsModal = ({ onClosePhotoDetailsModal, selectedPhoto, updateToFa
         {/** Map similar photos, use PhotoListItem? */}
         <div className='photo-details-modal__images'>
 
-          <PhotoList photos={similarPhotosValue} updateToFavPhotoIds={updateToFavPhotoIds} />
+          <PhotoList photos={similarPhotosValue} updateToFavPhotoIds={updateToFavPhotoIds} photoData={photoData} />
 
         </div>
       </div>

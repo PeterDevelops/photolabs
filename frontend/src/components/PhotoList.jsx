@@ -1,12 +1,10 @@
 import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
-import photos from "../mocks/photos";
-import PhotoDetailsModal from "../routes/PhotoDetailsModal";
 
-const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect }) => {
-
-  const photosMap = photos.map((data) => {
+const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect, photoData }) => {
+  
+  const photosMap = photoData.map((data) => {
     return <PhotoListItem key={data.id} photos={data} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />;
   });
 

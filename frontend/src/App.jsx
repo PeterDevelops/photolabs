@@ -8,6 +8,7 @@ import HomeRoute from './routes/HomeRoute';
 import PhotoDetailsModal from './routes/PhotoDetailsModal';
 import './App.scss';
 import useApplicationData from './hooks/useApplicationData';
+import TopicList from 'components/TopicList';
 
 // creates new array with 3 length worth of content, fill() 3 content with null, map content with photoListItem
 // const photos = new Array(3).fill(null).map((element, index) => <PhotoListItem key={index} sampleDataForPhotoListItem={sampleDataForPhotoListItem}/>);
@@ -25,9 +26,8 @@ const App = () => {
 
   return (
     <div className="App">
-      
-      <HomeRoute onPhotoSelect={onPhotoSelect} checkFavourite={checkFavourite} updateToFavPhotoIds={updateToFavPhotoIds} />
-      <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} updateToFavPhotoIds={updateToFavPhotoIds} state={state} />
+      <HomeRoute onPhotoSelect={onPhotoSelect} checkFavourite={checkFavourite} updateToFavPhotoIds={updateToFavPhotoIds} photoData={state.photoData} topicData={state.topicData} />
+      <PhotoDetailsModal onClosePhotoDetailsModal={onClosePhotoDetailsModal} updateToFavPhotoIds={updateToFavPhotoIds} state={state} photoData={state.photoData} />
     </div>
   );
 };

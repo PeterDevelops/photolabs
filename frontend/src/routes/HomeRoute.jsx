@@ -4,12 +4,12 @@ import TopNavigation from '../components/TopNavigationBar';
 import PhotoList from '../components/PhotoList';
 import '../styles/HomeRoute.scss';
 
-const HomeRoute = ({ onPhotoSelect, checkFavourite, updateToFavPhotoIds }) => {
-
+const HomeRoute = ({ onPhotoSelect, checkFavourite, updateToFavPhotoIds, photoData, topicData }) => {
+  console.log()
   return (
     <div className="home-route">
-      <TopNavigation checkFavourite={checkFavourite}  />
-      <PhotoList updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />
+      <TopNavigation checkFavourite={checkFavourite} topicData={topicData} />
+      <PhotoList updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} photoData={photoData} />
     </div>
   );
 };
