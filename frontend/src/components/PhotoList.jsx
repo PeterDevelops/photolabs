@@ -12,7 +12,6 @@ const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect, photoData }) => {
 
     <ul className="photo-list">
       {photosMap}
-      {/* {selectedPhoto && <PhotoDetailsModal />} */}
     </ul>
 
   );
