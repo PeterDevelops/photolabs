@@ -1,6 +1,6 @@
 # PhotoLabs
 
-Welcome to PhotoLabs! PhotoLabs is a web application that allows users to explore and manage their favorite photos based on different topics. Users can browse photos by topics, add photos to their favorites, and view detailed information about each photo.
+Welcome to PhotoLabs! PhotoLabs is a web application that allows users to explore and manage their favourite photos based on different topics. Users can browse photos by topics, add photos to their favorites, and view detailed information about each photo.
 
 ## Features
 - **Browse Photos by topics:** View photos based on the topics you have selected.
@@ -14,7 +14,7 @@ Welcome to PhotoLabs! PhotoLabs is a web application that allows users to explor
 !["Screenshot of favourite button press"](https://github.com/PeterDevelops/photolabs/blob/main/docs/favourite.png?raw=true)
 
 ## Installation Instructions
-1. **Clone the Repository:** Clone the Tweeter repository to your local machine.
+1. **Clone the Repository:** Clone the PhotoLabs repository to your local machine.
 2. **Install Dependencies:** cd into the respective `frontend` and `backend` folders and install all dependencies (using the `npm install` command).
 3. **Start the Application:** We will need two terminals to run this app. In your first terminal `cd backend` and `npm start`. Repeat this process in the second terminal but inside `frontend`.
-4. **Access PhotoLabs:** Open your web browser and navigate to `http://localhost:8001` to access the API. In a second web browser navigate to `http://localhost:3000`.
+4. **Access PhotoLabs:** Open your web browser and navigate to `http://localhost:8001` to access the API. In a second web browser navigate to `http://localhost:3000` to view the app.
