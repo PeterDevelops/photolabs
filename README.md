@@ -9,7 +9,9 @@ Welcome to PhotoLabs! PhotoLabs is a web application that allows users to explor
 - **View Photo Details:** Click on a photo to view its detailed information in a modal.
 
 ## Final Product
-!["Screenshot of tweeters main desktop page"](https://github.com/PeterDevelops/tweeter/blob/master/docs/desktop.png?raw=true)
+!["Screenshot of photolabs main desktop page"](https://github.com/PeterDevelops/photolabs/blob/main/docs/homepage.png?raw=true)
+!["Screenshot of photo modal"](https://github.com/PeterDevelops/photolabs/blob/main/docs/modal.png?raw=true)
+!["Screenshot of favourite button press"](https://github.com/PeterDevelops/photolabs/blob/main/docs/favourite.png?raw=true)
 
 ## Installation Instructions
 1. **Clone the Repository:** Clone the Tweeter repository to your local machine.
