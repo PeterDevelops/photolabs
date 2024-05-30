@@ -8,7 +8,8 @@ export const ACTIONS = {
   SET_TOPIC_DATA: 'SET_TOPIC_DATA',
   SELECT_PHOTO: 'SELECT_PHOTO',
   DISPLAY_PHOTO_DETAILS: 'DISPLAY_PHOTO_DETAILS',
-  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS'
+  GET_PHOTOS_BY_TOPICS: 'GET_PHOTOS_BY_TOPICS',
+  GET_PHOTOS_BY_USER_INPUT: 'GET_PHOTOS_BY_USER_INPUT'
 };
 
 // initial state
@@ -17,7 +18,7 @@ const initialValue = {
   selectedPhoto: null,
   isModalOpen: false,
   photoData: [],
-  topicData: []
+  topicData: [],
 };
 
 // reducer function
@@ -60,6 +61,11 @@ function reducer(state, action) {
         ...state,
         photoData: action.payload
       };
+    case ACTIONS.GET_PHOTOS_BY_USER_INPUT:
+      return {
+        ...state,
+        photoData: action.payload
+      }
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -69,24 +75,24 @@ function reducer(state, action) {
 
 const useApplicationData = function() {
   const [state, dispatch] = useReducer(reducer, initialValue);
-
-  const checkFavourite = () => {
-    return state.favourite.length >= 1;
-  };
-
+  
   useEffect(() => {
     Promise.all([
       fetch('http://localhost:8001/api/photos').then(res => res.json()),
       fetch('http://localhost:8001/api/topics').then(res => res.json())
     ])
-      .then(([photoData, topicData]) => {
-        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
-        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
-      })
-      .catch(err => {
-        throw new Error('Could not fetch data');
-      });
+    .then(([photoData, topicData]) => {
+      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
+    })
+    .catch(err => {
+      throw new Error('Could not fetch data');
+    });
   }, []);
+
+  const checkFavourite = () => {
+    return state.favourite.length >= 1;
+  };
 
   const updateToFavPhotoIds = (photoID) => {
     const isFavourite = state.favourite.includes(photoID);
@@ -116,13 +122,23 @@ const useApplicationData = function() {
       });
   };
 
+  const filterPhotosByUserInput = (user_input) => {
+    const filteredPhotos = state.photoData.filter(photo => 
+      photo.location.city.toLowerCase().includes(user_input.toLowerCase()) || photo.location.country.toLowerCase().
+      includes(user_input.toLowerCase()) || photo.user.username.toLowerCase().includes(user_input.toLowerCase())
+    );
+  
+    dispatch({ type: ACTIONS.GET_PHOTOS_BY_USER_INPUT, payload: filteredPhotos });
+  };
+
   return {
     state,
     updateToFavPhotoIds,
     onPhotoSelect,
     onClosePhotoDetailsModal,
     checkFavourite,
-    fetchPhotosByTopicId
+    fetchPhotosByTopicId,
+    filterPhotosByUserInput
   };
 };
 

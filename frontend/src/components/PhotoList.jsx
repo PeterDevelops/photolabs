@@ -8,6 +8,8 @@ const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect, photoData }) => {
     return <PhotoListItem key={data.id} photos={data} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />;
   });
 
+  console.log('PhotoList-photoData:', photoData);
+
   return (
 
     <ul className="photo-list">

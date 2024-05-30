@@ -12,7 +12,8 @@ const App = () => {
     updateToFavPhotoIds,
     onClosePhotoDetailsModal,
     checkFavourite,
-    fetchPhotosByTopicId
+    fetchPhotosByTopicId,
+    filterPhotosByUserInput
   } = useApplicationData();
 
   return (
@@ -23,6 +24,8 @@ const App = () => {
         photoData={state.photoData}
         topicData={state.topicData}
         fetchPhotosByTopicId={fetchPhotosByTopicId}
+        filterPhotosByUserInput={filterPhotosByUserInput}
+        state={state}
       />
 
       <PhotoDetailsModal
