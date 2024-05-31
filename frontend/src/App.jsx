@@ -17,11 +17,13 @@ const App = () => {
 
   return (
     <div className="App">
-      <HomeRoute onPhotoSelect={onPhotoSelect}
+      <HomeRoute
+        onPhotoSelect={onPhotoSelect}
         checkFavourite={checkFavourite}
         updateToFavPhotoIds={updateToFavPhotoIds}
         photoData={state.photoData}
         topicData={state.topicData}
+        state={state}
         fetchPhotosByTopicId={fetchPhotosByTopicId}
       />
 

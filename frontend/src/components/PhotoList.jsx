@@ -2,10 +2,10 @@ import React from "react";
 import PhotoListItem from "./PhotoListItem";
 import "../styles/PhotoList.scss";
 
-const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect, photoData }) => {
+const PhotoList = ({ updateToFavPhotoIds, onPhotoSelect, photoData, state, favouritePhoto }) => {
 
   const photosMap = photoData.map((data) => {
-    return <PhotoListItem key={data.id} photos={data} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} />;
+    return <PhotoListItem key={data.id} photos={data} updateToFavPhotoIds={updateToFavPhotoIds} onPhotoSelect={onPhotoSelect} state={state} favouritePhoto={favouritePhoto} />;
   });
 
   return (

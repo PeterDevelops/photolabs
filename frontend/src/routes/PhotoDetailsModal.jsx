@@ -22,7 +22,7 @@ const PhotoDetailsModal = ({ onClosePhotoDetailsModal, updateToFavPhotoIds, stat
 
           {/** Large Image */}
           <div >
-            <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={state.selectedPhoto.id} />
+            <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={state.selectedPhoto.id} favouritePhoto={state.favourite || []} />
             <img className='photo-details-modal__image' src={state.selectedPhoto.urls.full} alt='selected photo' />
           </div>
 
@@ -47,7 +47,7 @@ const PhotoDetailsModal = ({ onClosePhotoDetailsModal, updateToFavPhotoIds, stat
         {/** Map similar photos, use PhotoListItem? */}
         <div className='photo-details-modal__images'>
 
-          <PhotoList photos={similarPhotosValue} updateToFavPhotoIds={updateToFavPhotoIds} photoData={photoData} />
+          <PhotoList photos={similarPhotosValue} updateToFavPhotoIds={updateToFavPhotoIds} photoData={photoData} favouritePhoto={state.favourite} />
 
         </div>
       </div>

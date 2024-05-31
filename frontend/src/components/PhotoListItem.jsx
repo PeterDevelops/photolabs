@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/PhotoListItem.scss";
 import PhotoFavButton from "./PhotoFavButton";
 
-const PhotoListItem = ({ photos, updateToFavPhotoIds, onPhotoSelect }) => {
+const PhotoListItem = ({ photos, updateToFavPhotoIds, onPhotoSelect, state, favouritePhoto }) => {
   if (!photos && !photos.urls && !photos.user) {
     return null;
   }
@@ -13,7 +13,7 @@ const PhotoListItem = ({ photos, updateToFavPhotoIds, onPhotoSelect }) => {
 
       <div>
         <div>
-          <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={photos.id} />
+          <PhotoFavButton updateToFavPhotoIds={updateToFavPhotoIds} photoID={photos.id} state={state} favouritePhoto={favouritePhoto} />
         </div>
         <img src={photos.urls.regular} alt='Photo item' className="photo-list__image" onClick={() => onPhotoSelect(photos)} />
 

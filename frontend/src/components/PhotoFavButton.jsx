@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FavIcon from './FavIcon';
 import '../styles/PhotoFavButton.scss';
 
-function PhotoFavButton({ updateToFavPhotoIds, photoID }) {
+function PhotoFavButton({ updateToFavPhotoIds, photoID, state, favouritePhoto = [] }) {
   const [heart, setHeart] = useState(false);
+  
+  // set initial value
+  useEffect(() => {
+    // if id is in favouritePhoto set true, otherwise false
+    setHeart(favouritePhoto.includes(photoID));
+  }, [photoID, favouritePhoto])
 
   const likedHeart = () => {
     setHeart(prevHeart => prevHeart === false ? true : false);
