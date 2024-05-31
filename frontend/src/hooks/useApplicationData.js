@@ -65,7 +65,7 @@ function reducer(state, action) {
       return {
         ...state,
         photoData: action.payload
-      }
+      };
     default:
       throw new Error(
         `Tried to reduce with unsupported action type: ${action.type}`
@@ -75,19 +75,19 @@ function reducer(state, action) {
 
 const useApplicationData = function() {
   const [state, dispatch] = useReducer(reducer, initialValue);
-  
+
   useEffect(() => {
     Promise.all([
       fetch('http://localhost:8001/api/photos').then(res => res.json()),
       fetch('http://localhost:8001/api/topics').then(res => res.json())
     ])
-    .then(([photoData, topicData]) => {
-      dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
-      dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
-    })
-    .catch(err => {
-      throw new Error('Could not fetch data');
-    });
+      .then(([photoData, topicData]) => {
+        dispatch({ type: ACTIONS.SET_PHOTO_DATA, payload: photoData });
+        dispatch({ type: ACTIONS.SET_TOPIC_DATA, payload: topicData });
+      })
+      .catch(err => {
+        throw new Error('Could not fetch data');
+      });
   }, []);
 
   const checkFavourite = () => {
@@ -123,11 +123,11 @@ const useApplicationData = function() {
   };
 
   const filterPhotosByUserInput = (user_input) => {
-    const filteredPhotos = state.photoData.filter(photo => 
+    const filteredPhotos = state.photoData.filter(photo =>
       photo.location.city.toLowerCase().includes(user_input.toLowerCase()) || photo.location.country.toLowerCase().
-      includes(user_input.toLowerCase()) || photo.user.username.toLowerCase().includes(user_input.toLowerCase())
+        includes(user_input.toLowerCase()) || photo.user.username.toLowerCase().includes(user_input.toLowerCase())
     );
-  
+
     dispatch({ type: ACTIONS.GET_PHOTOS_BY_USER_INPUT, payload: filteredPhotos });
   };
 
